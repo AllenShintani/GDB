@@ -25,6 +25,7 @@ def dir_list_of(jsondata, current_dir='')->list:
 
     return dirs
 
+
 def seperate_jsons(jsondata, current_dir='')->list:
     dirs = []
     write_dict_as_json(jsondata, current_dir + '/index.html')

@@ -1,13 +1,13 @@
 name: "Create PR"
 
-on: [ workflow_dispatch ]
+on: push
 
 env:
   JSON_FILE_PATH: sample.json
   PR_TITLE: プルリクエストタイトル
   PR_LABEL: hoge,foo
-  PR_TEMPLATE: .github/PULL_REQUEST_TEMPLATE.md
-  DEST_BRANCH: main
+  PR_TEMPLATE: ./README.md
+  DEST_BRANCH: master
 
 jobs:
   build:
@@ -29,12 +29,10 @@ jobs:
         run: |
           git switch -c fix/hoge_${{ env.CURRENT_DATETIME }}
           git push -u origin fix/hoge_${{ env.CURRENT_DATETIME }}
-
       # 任意の更新処理
       - name: Update json file
         run: |
           cat ${{ env.JSON_FILE_PATH }} | jq '.+ {"user":{"name": "hoge","age": 30}}' > tmp && mv tmp ${{ env.JSON_FILE_PATH }}
-
       - name: Add and Commit
         uses: EndBug/add-and-commit@v7
         with:

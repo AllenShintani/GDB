@@ -7,7 +7,7 @@ env:
   PR_TITLE: プルリクエストタイトル
   PR_LABEL: hoge,foo
   PR_TEMPLATE: .github/PULL_REQUEST_TEMPLATE.md
-  DEST_BRANCH: main
+  DEST_BRANCH: master
 
 jobs:
   build:

@@ -6,7 +6,7 @@ env:
   JSON_FILE_PATH: sample.json
   PR_TITLE: プルリクエストタイトル
   PR_LABEL: hoge,foo
-  PR_TEMPLATE: .github/PULL_REQUEST_TEMPLATE.md
+  PR_TEMPLATE: ../../README.md
   DEST_BRANCH: master
 
 jobs:

@@ -32,12 +32,11 @@ jobs:
       # 任意の更新処理
       - name: Update json file
         run: |
-          cat ${{ env.JSON_FILE_PATH }} | jq '.+ {"user":{"name": "hoge","age": 30}}' > tmp && mv tmp ${{ env.JSON_FILE_PATH }}
+          cat ${{ env.JSON_FILE_PATH }} | jq > tmp && mv tmp ${{ env.JSON_FILE_PATH }}
       - name: Add and Commit
         uses: EndBug/add-and-commit@v7
         with:
           branch: fix/hoge_${{ env.CURRENT_DATETIME }}
-          message: ${{ env.PR_TITLE }}
           add: ${{ env.JSON_FILE_PATH }}
 
       - name: Create pull request

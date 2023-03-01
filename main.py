@@ -1,7 +1,7 @@
 import json
 
 ponya = {"Atomaru": "C", "Kanbara": "AA",
-         "Hamuko": "E", "Konoha": "B", "Mario": "F"}
+         "Hamuko": "E", "Konoha": "B", "Mario": "F","gamera": "G"}
 
 
 with open(f"data/sample.json", mode="w") as f:

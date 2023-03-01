@@ -4,10 +4,6 @@ on: push
 
 env:
   JSON_FILE_PATH: data/sample.json
-  PR_TITLE: プルリクエストタイトル
-  PR_LABEL: hoge,foo
-  PR_TEMPLATE: ./README.md
-  DEST_BRANCH: master
 
 jobs:
   build:

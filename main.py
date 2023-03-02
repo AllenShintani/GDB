@@ -65,3 +65,5 @@ def add_value(path: str, *args: dict) -> None:
 def make_branch(name: str) -> None:
     with open(f"ponya/{name}.json", mode='w') as f:
         f.write(json.dumps(dict(), indent=4))
+
+make_branch("abcde")

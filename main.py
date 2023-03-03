@@ -66,3 +66,9 @@ def make_branch(name: str) -> None:
     if (os.path.exists(path + "/sample.json") == False):
         with open(path + "/sample.json", mode='w') as f:
             json.dump(dict(), f, indent=4)
+
+make_branch("test")
+add_value("test", "mario", "F")
+add_value("test", "Atomaru", "C")
+add_value("test", "Kanbara", "AA")
+edit_value("test", "Kanbara", "H")

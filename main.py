@@ -1,7 +1,5 @@
 import os
-import git
 import json
-from box import Box
 from typing import Any
 
 keyable = str | int | float | bool | None
@@ -23,17 +21,14 @@ def json_to_dict(name: str) -> dict:
 def get_value(name: str, *args: keyable) -> Any:
 
     df: dict = json_to_dict(name)
+    result: Any = df
 
-    mybox: Box = Box(df, box_dots=True)
-    keys: list = list()
     for key in args:
-        keys.append(key)
+        result = result[key]
 
-    KEY: str = ".".join(keys)
-
-    if (KEY == ''):
+    if (len(args) == 0):
         return (df)
-    return (mybox[KEY])
+    return (result)
 
 
 def edit_value(name: str, key: keyable, value: Any) -> None:
@@ -71,14 +66,3 @@ def make_branch(name: str) -> None:
     if (os.path.exists(path + "/sample.json") == False):
         with open(path + "/sample.json", mode='w') as f:
             json.dump(dict(), f, indent=4)
-
-make_branch("XXX")
-add_value("XXX", "oppai", "Fcup")
-print(get_value("XXX", "oppai"))
-edit_value("XXX", "oppai", "Lcup")
-print(get_value("XXX", "oppai"))
-print(add_value("XXX", "ashi", "futomomo"))
-print(get_value("XXX"))
-edit_value("XXX", "ashi", "tsurutsuru")
-print(get_value("XXX"))
-add_value("XXX", "oppai", "Mcup")

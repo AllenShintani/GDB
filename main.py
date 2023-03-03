@@ -1,5 +1,4 @@
 import os
-import git
 import json
 from box import Box
 from typing import Any
@@ -11,7 +10,6 @@ ponya: dict = {"Atomaru": "C", "Kanbara": "AA",
                "Mario": "F", "Gamera": "G",
                "oppai": {"A": 1, "B": 2, "C": {"D": 42}}
                }
-
 
 def json_to_dict(name: str) -> dict:
     path: str = "data/" + name + "/sample.json"
